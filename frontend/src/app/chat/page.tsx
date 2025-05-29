@@ -160,6 +160,40 @@ export default function Home() {
       });
   };
 
+  const rewrite = async () => {
+    if (text.length < 3 || loading) return;
+
+    setLoading(true);
+    const config = {
+      method: "POST",
+      url: `${serverURL}/rewordai/rewrite`,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": `application/json`,
+      },
+      data: {
+        text: text,
+        tone: tone,
+      },
+    };
+
+    axios(config)
+      .then((response) => {
+        setLoading(false);
+        setRewrites([response.data.output]);
+        getRewrites();
+      })
+      .catch((error) => {
+        setLoading(false);
+        if (error.response && error.response.data) {
+          toast.error(error.response.data);
+        } else {
+          toast.error("Something went wrong!");
+        }
+      });
+  };
+
+
   useEffect(() => {
     getRewrites();
     getExpirationDate();
