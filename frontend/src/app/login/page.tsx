@@ -82,7 +82,7 @@ export default function Home() {
           value={password}
         />
         <button className="btn btn-primary w-full mb-4" onClick={() => login()}>
-          Login
+          Login Page is this 
         </button>
         <div className="flex justify-between items-center">
           <p className="text-sm">
