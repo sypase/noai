@@ -12,6 +12,7 @@ export default function Page() {
         purchases: number;
         items: number;
         users: number;
+        
     }
 
     const [data, setData] = useState<DashboardData | null>();
