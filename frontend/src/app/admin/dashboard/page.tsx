@@ -11,7 +11,6 @@ export default function Page() {
         earnings: number;
         purchases: number;
         items: number;
-        users: number;
         
     }
 
