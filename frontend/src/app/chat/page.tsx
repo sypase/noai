@@ -160,6 +160,8 @@ export default function Home() {
       });
   };
 
+  
+
   useEffect(() => {
     getRewrites();
     getExpirationDate();
